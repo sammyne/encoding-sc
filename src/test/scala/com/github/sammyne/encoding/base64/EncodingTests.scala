@@ -25,6 +25,8 @@ class EncodingTests extends AnyFunSuite {
     new String(raw, StandardCharsets.ISO_8859_1)
   }
 
+  def funnyRef(ref: String): String = ref.replaceAll("=", "@")
+
   def rawRef(ref: String): String = ref.replaceAll("=+$", "")
 
   def rawUrlRef(ref: String): String = this.rawRef(this.urlRef(ref))
@@ -33,11 +35,14 @@ class EncodingTests extends AnyFunSuite {
 
   def urlRef(ref: String): String = ref.replace('+', '-').replace('/', '_')
 
+  val funnyEncoding = new Encoding(ENCODE_STD).withPadding('@')
+
   val encodingTests = Array[encodingTest](
     encodingTest(STD_ENCODING, stdRef(_)),
     encodingTest(URL_ENCODING, urlRef(_)),
     encodingTest(RAW_STD_ENCODING, rawRef(_)),
-    encodingTest(RAW_URL_ENCODING, rawUrlRef(_))
+    encodingTest(RAW_URL_ENCODING, rawUrlRef(_)),
+    encodingTest(funnyEncoding, funnyRef(_))
   )
 
   val pairs = Array[testpair](
