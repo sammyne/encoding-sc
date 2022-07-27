@@ -33,6 +33,20 @@ package object hex {
 
   def decodedLen(x: Int): Int = x / 2
 
+  /**
+   * Encodes src into slice of src into dst. encode implements hexadecimal encoding.
+   *
+   * @param dst
+   *   the output buffer to put encoded byte
+   * @param src
+   *   the input buffer to encode
+   * @param dstFrom
+   *   the output offset in dst to start writing
+   * @param srcFrom
+   *   the input offset in src to start reading
+   * @param srcUntil
+   *   the input exclusively upper bound index in src to stop reading
+   */
   def encode(
       dst: Array[Byte],
       src: Array[Byte],
