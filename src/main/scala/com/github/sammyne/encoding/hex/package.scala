@@ -3,7 +3,7 @@ package com.github.sammyne.encoding
 import scala.collection.mutable.IndexedSeqView
 
 package object hex {
-  private val ALPHABET = "0123456789abcdef"
+  private val ALPHABET = "0123456789abcdef".getBytes()
 
   def decode(
       dst: Array[Byte],
@@ -32,6 +32,38 @@ package object hex {
   }
 
   def decodedLen(x: Int): Int = x / 2
+
+  def encode(
+      dst: Array[Byte],
+      src: Array[Byte],
+      dstFrom: Int = 0,
+      srcFrom: Int = 0,
+      srcUntil: Int = -1
+  ): Unit = {
+    val srcView = src.view.slice(srcFrom, srcUntil.max(src.length))
+    val dstView = dst.view.slice(dstFrom, dst.length)
+
+    for (i <- 0.until(srcView.length)) {
+      val (c, j) = (srcView(i), i * 2)
+      dstView(j) = this.ALPHABET((c & 0xff) >> 4)
+      dstView(j + 1) = this.ALPHABET(c & 0x0f)
+    }
+  }
+
+  def encodeToString(src: Array[Byte], srcFrom: Int = 0, srcUntil: Int = -1): String = {
+    val srcView = src.view.slice(srcFrom, srcUntil.max(src.length))
+
+    val out = new StringBuilder(this.encodedLen(srcView.length))
+    for (c <- srcView) {
+      val (a, b) = (this.ALPHABET((c & 0xff) >> 4), this.ALPHABET(c & 0x0f))
+      out.append(a.toChar)
+      out.append(b.toChar)
+    }
+
+    out.toString()
+  }
+
+  def encodedLen(n: Int): Int = n * 2
 
   private def mapToByte(s: Byte): Byte = {
     val out = if ((s >= '0') && (s <= '9')) {
