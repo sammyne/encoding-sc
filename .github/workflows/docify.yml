@@ -1,0 +1,42 @@
+name: docify
+
+on:
+  push:
+    branches:
+    - main
+    - dev
+
+# ref: https://github.com/JamesIves/github-pages-deploy-action#permission-settings-%EF%B8%8F
+permissions:
+  contents: write
+  
+jobs:
+  docify:
+    runs-on: ubuntu-18.04
+    container:
+      image: sammyne/scala:2.12.15-jdk8-ubuntu20.04
+    steps:
+    # sammyne/scala bundled without git, so installing it to avoid the RESTful fallback of actions/check.
+    # Otherwise, the fetched repository won't be a valid git repository.
+    - name: Install git
+      run: apt update && apt install -y git
+    - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+    - name: Scala toolchains
+      run: |
+        scalac -version &&
+        sbt --version
+    - name: Generate static files
+      run: sbt doc
+    - name: Install rsync for JamesIves/github-pages-deploy-action@releases/v4
+      run: apt update && apt install -y rsync
+    # https://github.blog/2022-04-12-git-security-vulnerability-announced/#cve-2022-24765
+    - name: Fix git CVE-2022-24765
+      run: git config --global --add safe.directory $GITHUB_WORKSPACE
+    - name: Deploy docs
+      uses: JamesIves/github-pages-deploy-action@releases/v4
+      with:
+        #access_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        branch: gh-pages
+        folder: target/scala-2.12/api
