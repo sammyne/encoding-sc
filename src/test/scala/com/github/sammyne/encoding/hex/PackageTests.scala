@@ -35,5 +35,21 @@ class PackageTests extends AnyFunSuite {
     }
   }
 
+  test("encode") {
+    for ((c, i) <- encDecTests.zipWithIndex) {
+      val dst = new Array[Byte](encodedLen(c.dec.length))
+      encode(dst, c.dec)
+
+      assert(c.enc.getBytes().deep == dst.deep, s"#$i")
+    }
+  }
+
+  test("encodeToString") {
+    for ((c, i) <- encDecTests.zipWithIndex) {
+      val got = encodeToString(c.dec)
+      assert(c.enc == got, s"#$i")
+    }
+  }
+
   private def toBytes(x: Int*): Array[Byte] = x.map(_.toByte).toArray
 }
