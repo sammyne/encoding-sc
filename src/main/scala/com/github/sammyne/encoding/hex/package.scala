@@ -24,6 +24,13 @@ package object hex {
     }
   }
 
+  def decodeString(s: String): Array[Byte] = {
+    val src = s.getBytes()
+    val out = new Array[Byte](this.decodedLen(src.length))
+    this.decode(out, src)
+    out
+  }
+
   def decodedLen(x: Int): Int = x / 2
 
   private def mapToByte(s: Byte): Byte = {
