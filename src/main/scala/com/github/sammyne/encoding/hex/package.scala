@@ -5,6 +5,9 @@ import scala.collection.mutable.IndexedSeqView
 package object hex {
   private val ALPHABET = "0123456789abcdef".getBytes()
 
+  /**
+    * Reports an attempt to decode an odd-length input using decode or decodeString.
+    */
   val EXCEPTION_LENGTH = new Exception("encoding/hex: odd length hex string")
 
   def decode(
