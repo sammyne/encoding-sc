@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+    branches:
+    - main
+    - dev
+  
+jobs:
+  docify:
+    runs-on: ubuntu-18.04
+    container:
+      image: sammyne/scala:2.12.15-jdk8-ubuntu20.04
+    steps:
+    # sammyne/scala bundled without git, so installing it to avoid the RESTful fallback of actions/check.
+    # Otherwise, the fetched repository won't be a valid git repository.
+    - name: Install git
+      run: apt update && apt install -y git
+    - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+    - name: Scala toolchains
+      run: |
+        scalac -version &&
+        sbt --version
+    - name: Run unit tests
+      run: sbt test
