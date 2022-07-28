@@ -5,6 +5,8 @@ on:
     branches:
     - main
     - dev
+    paths:
+    - 'src/**/*.scala'
 
 # ref: https://github.com/JamesIves/github-pages-deploy-action#permission-settings-%EF%B8%8F
 permissions:
