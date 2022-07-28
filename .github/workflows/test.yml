@@ -9,7 +9,7 @@ on:
     - 'test/**/*.scala'
   push:
     branches-ignore:
-    - dev
+    - main
     paths:
     - 'src/**/*.scala'
     - 'test/**/*.scala'
