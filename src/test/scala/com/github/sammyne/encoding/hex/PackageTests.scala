@@ -4,6 +4,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class PackageTests extends AnyFunSuite {
   case class encDecTest(enc: String, dec: Array[Byte])
+  case class errTestCase(in: String, err: Exception)
 
   val encDecTests = Array(
     encDecTest("", Array[Byte]()),
@@ -13,6 +14,18 @@ class PackageTests extends AnyFunSuite {
     encDecTest("f8f9fafbfcfdfeff", toBytes(0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff)),
     encDecTest("67", Array[Byte]('g')),
     encDecTest("e3a1", toBytes(0xe3, 0xa1))
+  )
+
+  val errTests = Array(
+    errTestCase("", null),
+    errTestCase("0", EXCEPTION_LENGTH),
+    errTestCase("zd4aa0", InvalidByteException('z')),
+    errTestCase("d4aaz0", InvalidByteException('z')),
+    errTestCase("30313", EXCEPTION_LENGTH),
+    errTestCase("0g", InvalidByteException('g')),
+    errTestCase("00gg", InvalidByteException('g')),
+    errTestCase(s"0${0.toChar}10", InvalidByteException(0)),
+    errTestCase("ffeed", EXCEPTION_LENGTH)
   )
 
   test("decode") {
@@ -28,7 +41,25 @@ class PackageTests extends AnyFunSuite {
     }
   }
 
+  test("decodeErr") {
+    for ((c, i) <- errTests.zipWithIndex) {
+      var got: Exception = null
+      try {
+        val src = c.in.getBytes()
+        val out = new Array[Byte](encodedLen(src.length))
+
+        decode(out, src)
+      } catch {
+        case e: Throwable => got = e.asInstanceOf[Exception]
+      }
+
+      assert(c.err == got, s"#$i")
+    }
+  }
+
   test("decodeString") {
+    val _ = decodeString("0x")
+
     for ((c, i) <- encDecTests.zipWithIndex) {
       val got = decodeString(c.enc)
       assert(c.dec.deep == got.deep, s"#$i")
