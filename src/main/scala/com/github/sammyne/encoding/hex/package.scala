@@ -5,6 +5,8 @@ import scala.collection.mutable.IndexedSeqView
 package object hex {
   private val ALPHABET = "0123456789abcdef".getBytes()
 
+  val EXCEPTION_LENGTH = new Exception("encoding/hex: odd length hex string")
+
   def decode(
       dst: Array[Byte],
       src: Array[Byte],
@@ -14,7 +16,7 @@ package object hex {
   ): Unit = {
     val srcView = src.view.slice(srcFrom, srcUntil.max(src.length))
     if (srcView.length % 2 != 0) {
-      throw new IllegalArgumentException(s"bad src length: ${srcView.length}")
+      throw this.EXCEPTION_LENGTH
     }
 
     val dstView = dst.view.slice(dstFrom, dst.length)
@@ -87,7 +89,7 @@ package object hex {
     } else if ((s >= 'A') && (s <= 'F')) {
       s - 'A' + 10
     } else {
-      throw new IllegalArgumentException(s"non-hex char $s")
+      throw new InvalidByteException(s)
     }
 
     out.toByte
