@@ -6,16 +6,14 @@ on:
     - main
     paths:
     - 'src/**/*.scala'
-    - 'test/**/*.scala'
   push:
     branches-ignore:
     - main
     paths:
     - 'src/**/*.scala'
-    - 'test/**/*.scala'
   
 jobs:
-  docify:
+  test:
     runs-on: ubuntu-18.04
     container:
       image: sammyne/scala:2.12.15-jdk8-ubuntu20.04
