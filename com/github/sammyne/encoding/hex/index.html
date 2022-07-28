@@ -149,7 +149,7 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.github.sammyne.encoding">encoding</a></dd></dl></div>
-    </li><li name="com.github.sammyne.encoding.binary" visbl="pub" class="indented5 current" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.github.sammyne.encoding.binary" visbl="pub" class="indented5 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="binary"></a><a id="binary:binary"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/binary/index.html" title="Permalink">
@@ -161,23 +161,11 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <span class="name">binary</span>
+        <a title="" href="../binary/index.html"><span class="name">binary</span></a>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.github.sammyne.encoding">encoding</a></dd></dl></div>
-    </li><li class="current-entities indented5">
-                        <span class="separator"></span>
-                        <a class="object" href="BigEndian$.html" title=""></a>
-                        <a href="BigEndian$.html" title="">BigEndian</a>
-                      </li><li class="current-entities indented5">
-                        <span class="separator"></span>
-                        <a class="trait" href="ByteOrder.html" title=""></a>
-                        <a href="ByteOrder.html" title="">ByteOrder</a>
-                      </li><li class="current-entities indented5">
-                        <span class="separator"></span>
-                        <a class="object" href="LittleEndian$.html" title=""></a>
-                        <a href="LittleEndian$.html" title="">LittleEndian</a>
-                      </li><li name="com.github.sammyne.encoding.hex" visbl="pub" class="indented5 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.github.sammyne.encoding.hex" visbl="pub" class="indented5 current" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hex"></a><a id="hex:hex"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/hex/index.html" title="Permalink">
@@ -189,11 +177,15 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="../hex/index.html"><span class="name">hex</span></a>
+        <span class="name">hex</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.github.sammyne.encoding">encoding</a></dd></dl></div>
-    </li>
+    </li><li class="current-entities indented5">
+                        <span class="separator"></span>
+                        <a class="class" href="InvalidByteException.html" title="Describe errors resulting from an invalid byte in a hex string."></a>
+                        <a href="InvalidByteException.html" title="Describe errors resulting from an invalid byte in a hex string.">InvalidByteException</a>
+                      </li>
               </ul>
             </div>
           </div>
@@ -202,8 +194,8 @@
       <div id="definition">
         <div class="big-circle package">p</div>
         <p id="owner"><a href="../../../../index.html" class="extype" name="com">com</a>.<a href="../../../index.html" class="extype" name="com.github">github</a>.<a href="../../index.html" class="extype" name="com.github.sammyne">sammyne</a>.<a href="../index.html" class="extype" name="com.github.sammyne.encoding">encoding</a></p>
-        <h1>binary<span class="permalink">
-      <a href="../../../../../com/github/sammyne/encoding/binary/index.html" title="Permalink">
+        <h1>hex<span class="permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -216,12 +208,17 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <span class="name">binary</span>
+        <span class="name">hex</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"></div>
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -239,10 +236,22 @@
             <ol>
               
               <li class="alpha in"><span>Alphabetic</span></li>
-              
+              <li class="inherit out"><span>By Inheritance</span></li>
             </ol>
           </div>
-          
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="com.github.sammyne.encoding.hex"><span>hex</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
           <div id="visbl">
               <span class="filtertype">Visibility</span>
               <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
@@ -256,22 +265,22 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="com.github.sammyne.encoding.binary.ByteOrder" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="ByteOrderextendsAnyRef"></a><a id="ByteOrder:ByteOrder"></a>
+              <ol><li name="com.github.sammyne.encoding.hex.InvalidByteException" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InvalidByteExceptionextendsExceptionwithEqualswithProductwithSerializable"></a><a id="InvalidByteException:InvalidByteException"></a>
       <span class="permalink">
-      <a href="../../../../../com/github/sammyne/encoding/binary/ByteOrder.html" title="Permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/InvalidByteException.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="ByteOrder.html"><span class="name">ByteOrder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="Describe errors resulting from an invalid byte in a hex string." href="InvalidByteException.html"><span class="name">InvalidByteException</span></a><span class="params">(<span name="b">b: <span class="extype" name="scala.Byte">Byte</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Equals">Equals</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Describe errors resulting from an invalid byte in a hex string.</p>
     </li></ol>
             </div>
 
@@ -280,35 +289,121 @@
         <div class="values members">
               <h3>Value Members</h3>
               <ol>
-                <li name="com.github.sammyne.encoding.binary.BigEndian" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="BigEndian"></a><a id="BigEndian:BigEndian"></a>
+                <li name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EXCEPTION_LENGTH:Exception"></a>
       <span class="permalink">
-      <a href="../../../../../com/github/sammyne/encoding/binary/BigEndian$.html" title="Permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#EXCEPTION_LENGTH:Exception" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <a title="" href="BigEndian$.html"><span class="name">BigEndian</span></a><span class="result"> extends <a href="ByteOrder.html" class="extype" name="com.github.sammyne.encoding.binary.ByteOrder">ByteOrder</a></span>
+        <span class="name">EXCEPTION_LENGTH</span><span class="result">: <span class="extype" name="java.lang.Exception">Exception</span></span>
       </span>
       
-      
-    </li><li name="com.github.sammyne.encoding.binary.LittleEndian" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LittleEndian"></a><a id="LittleEndian:LittleEndian"></a>
+      <p class="shortcomment cmt">Reports an attempt to decode an odd-length input using decode or decodeString.</p>
+    </li><li name="com.github.sammyne.encoding.hex#decode" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="decode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit"></a><a id="decode(Array[Byte],Array[Byte],Int,Int,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/github/sammyne/encoding/binary/LittleEndian$.html" title="Permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#decode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <a title="" href="LittleEndian$.html"><span class="name">LittleEndian</span></a><span class="result"> extends <a href="ByteOrder.html" class="extype" name="com.github.sammyne.encoding.binary.ByteOrder">ByteOrder</a></span>
+        <span class="name">decode</span><span class="params">(<span name="dst">dst: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="src">src: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="dstFrom">dstFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcFrom">srcFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcUntil">srcUntil: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">-1</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      
+    </li><li name="com.github.sammyne.encoding.hex#decodeString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="decodeString(s:String):Array[Byte]"></a><a id="decodeString(String):Array[Byte]"></a>
+      <span class="permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#decodeString(s:String):Array[Byte]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
+      </span>
+      
+      
+    </li><li name="com.github.sammyne.encoding.hex#decodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="decodedLen(x:Int):Int"></a><a id="decodedLen(Int):Int"></a>
+      <span class="permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#decodedLen(x:Int):Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodedLen</span><span class="params">(<span name="x">x: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      
+    </li><li name="com.github.sammyne.encoding.hex#encode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="encode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit"></a><a id="encode(Array[Byte],Array[Byte],Int,Int,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#encode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encode</span><span class="params">(<span name="dst">dst: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="src">src: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="dstFrom">dstFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcFrom">srcFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcUntil">srcUntil: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">-1</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Encodes src into slice of src into dst.</p><div class="fullcomment"><div class="comment cmt"><p>Encodes src into slice of src into dst. encode implements hexadecimal encoding.
+</p></div><dl class="paramcmts block"><dt class="param">dst</dt><dd class="cmt"><p>
+  the output buffer to put encoded byte</p></dd><dt class="param">src</dt><dd class="cmt"><p>
+  the input buffer to encode</p></dd><dt class="param">dstFrom</dt><dd class="cmt"><p>
+  the output offset in dst to start writing</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
+  the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
+  the input exclusively upper bound index in src to stop reading</p></dd></dl></div>
+    </li><li name="com.github.sammyne.encoding.hex#encodeToString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="encodeToString(src:Array[Byte],srcFrom:Int,srcUntil:Int):String"></a><a id="encodeToString(Array[Byte],Int,Int):String"></a>
+      <span class="permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#encodeToString(src:Array[Byte],srcFrom:Int,srcUntil:Int):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeToString</span><span class="params">(<span name="src">src: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="srcFrom">srcFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcUntil">srcUntil: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">-1</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      
+    </li><li name="com.github.sammyne.encoding.hex#encodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="encodedLen(n:Int):Int"></a><a id="encodedLen(Int):Int"></a>
+      <span class="permalink">
+      <a href="../../../../../com/github/sammyne/encoding/hex/index.html#encodedLen(n:Int):Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodedLen</span><span class="params">(<span name="n">n: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       
       
@@ -322,7 +417,11 @@
         </div>
 
         <div id="inheritedMembers">
-        
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
         
         </div>
 
