@@ -58,8 +58,6 @@ class PackageTests extends AnyFunSuite {
   }
 
   test("decodeString") {
-    val _ = decodeString("0x")
-
     for ((c, i) <- encDecTests.zipWithIndex) {
       val got = decodeString(c.enc)
       assert(c.dec.deep == got.deep, s"#$i")
