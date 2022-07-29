@@ -1,4 +1,3 @@
-
 // The simplest possible sbt build file is just one line:
 
 scalaVersion := "2.12.15"
@@ -13,14 +12,13 @@ scalaVersion := "2.12.15"
 
 // It's possible to define many kinds of settings, such as:
 
-name := "encoding"
+name := "encoding-examples"
 organization := "com.github.sammyne"
-version := "0.1"
+version := "1.0"
 
 // Note, it's not required for you to define these three settings. These are
 // mostly only necessary if you intend to publish your library's binaries on a
 // place like Sonatype.
-
 
 // Want to use a published library in your project?
 // You can define other libraries as dependencies in your build like this:
@@ -76,6 +74,6 @@ version := "0.1"
 // To learn more about multi-project builds, head over to the official sbt
 // documentation at http://www.scala-sbt.org/documentation.html
 
-libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.2.11" % Test,
-)
+lazy val encodingLib = RootProject(file(".."))
+
+dependsOn(encodingLib)

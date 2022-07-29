@@ -14,6 +14,22 @@ package object hex {
     *
     * decode expects that src contains only hexadecimal characters and that src has even length.
     *
+    * @example
+    *   {{{
+    * import com.github.sammyne.encoding.hex
+    *
+    * object Decode extends App {
+    *   val src = "48656c6c6f20476f7068657221".getBytes()
+    *
+    *   val dst = new Array[Byte](hex.decodedLen(src.length))
+    *
+    *   hex.decode(dst, src)
+    *
+    *   val got = new String(dst)
+    *   val expect = "Hello Gopher!"
+    *   assert(expect == got)
+    * }
+    *   }}}
     * @param dst
     *   the output buffer to put decoded byte
     * @param src
@@ -48,9 +64,23 @@ package object hex {
     }
   }
 
-  /** Returns the bytes represented by the hexadecimal string s. decodeString expects that src contains only hexadecimal
-    * characters and that src has even length.
+  /** Returns the bytes represented by the hexadecimal string s.
     *
+    * decodeString expects that src contains only hexadecimal characters and that src has even length.
+    *
+    * @example
+    *   {{{
+    * import com.github.sammyne.encoding.hex
+    *
+    * object DecodeString extends App {
+    *   val src = "48656c6c6f20476f7068657221"
+    *
+    *   val got = hex.decodeString(src)
+    *
+    *   val expect = "Hello Gopher!"
+    *   assert(expect == new String(got))
+    * }
+    *   }}}
     * @param s
     *   even-length hexadecimal string to decode
     * @return
@@ -88,6 +118,21 @@ package object hex {
     *   the input offset in src to start reading
     * @param srcUntil
     *   the input exclusively upper bound index in src to stop reading. -1 means src.length
+    * @example
+    *   {{{
+    * import com.github.sammyne.encoding.hex
+    *
+    * object Encode extends App {
+    *   val src = "Hello Gopher!".getBytes()
+    *
+    *   val dst = new Array[Byte](hex.encodedLen(src.length))
+    *   hex.encode(dst, src)
+    *
+    *   val got = new String(dst)
+    *   val expect = "48656c6c6f20476f7068657221"
+    *   assert(expect == got)
+    * }
+    *   }}}
     */
   def encode(
       dst: Array[Byte],
@@ -108,6 +153,22 @@ package object hex {
 
   /** Returns the hexadecimal encoding of slice of src.
     *
+    * @example
+    *   {{{
+    * package hex.examples
+    *
+    * import com.github.sammyne.encoding.hex
+    *
+    * object EncodeToString extends App {
+    *   val src = "Hello".getBytes()
+    *   val encodedStr = hex.encodeToString(src)
+    *   println(encodedStr)
+    *
+    *   // output:
+    *   // 48656c6c6f
+    * }
+    *
+    *   }}}
     * @param src
     *   the input buffer to encode
     * @param dstFrom
