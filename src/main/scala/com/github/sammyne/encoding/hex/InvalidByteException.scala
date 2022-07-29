@@ -1,7 +1,6 @@
 package com.github.sammyne.encoding.hex
 
-/**
-  * Describe errors resulting from an invalid byte in a hex string.
+/** Describe errors resulting from an invalid byte in a hex string.
   */
 case class InvalidByteException(b: Byte) extends Exception(s"encoding/hex: invalid byte: '${b.toChar}'") with Equals {
   override def canEqual(that: Any): Boolean = that.isInstanceOf[InvalidByteException]

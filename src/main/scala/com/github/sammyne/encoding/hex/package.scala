@@ -2,14 +2,33 @@ package com.github.sammyne.encoding
 
 import scala.collection.mutable.IndexedSeqView
 
+/** Implements hexadecimal encoding and decoding. */
 package object hex {
   private val ALPHABET = "0123456789abcdef".getBytes()
 
-  /**
-    * Reports an attempt to decode an odd-length input using decode or decodeString.
+  /** Reports an attempt to decode an odd-length input using decode or decodeString.
     */
   val EXCEPTION_LENGTH = new Exception("encoding/hex: odd length hex string")
 
+  /** Decodes src into dst.
+    *
+    * decode expects that src contains only hexadecimal characters and that src has even length.
+    *
+    * @param dst
+    *   the output buffer to put decoded byte
+    * @param src
+    *   the input buffer to read byte to decode
+    * @param dstFrom
+    *   the output offset in dst to start writing
+    * @param srcFrom
+    *   the input offset in src to start reading
+    * @param srcUntil
+    *   the input exclusively upper bound index in src to stop reading. -1 means src.length
+    * @throws EXCEPTION_LENGTH
+    *   non-even length of input src slice
+    * @throws InvalidByteException
+    *   wrapping the first invalid byte
+    */
   def decode(
       dst: Array[Byte],
       src: Array[Byte],
@@ -29,6 +48,18 @@ package object hex {
     }
   }
 
+  /** Returns the bytes represented by the hexadecimal string s. decodeString expects that src contains only hexadecimal
+    * characters and that src has even length.
+    *
+    * @param s
+    *   even-length hexadecimal string to decode
+    * @return
+    *   bytes decoded from s
+    * @throws EXCEPTION_LENGTH
+    *   non-even length of input src slice
+    * @throws InvalidByteException
+    *   wrapping the first invalid byte
+    */
   def decodeString(s: String): Array[Byte] = {
     val src = s.getBytes()
     val out = new Array[Byte](this.decodedLen(src.length))
@@ -36,22 +67,28 @@ package object hex {
     out
   }
 
+  /** Returns the length of a decoding of x source bytes. Specifically, it returns x / 2.
+    *
+    * @param x
+    *   length of source bytes
+    * @return
+    *   output length for decoding x bytes
+    */
   def decodedLen(x: Int): Int = x / 2
 
-  /**
-   * Encodes src into slice of src into dst. encode implements hexadecimal encoding.
-   *
-   * @param dst
-   *   the output buffer to put encoded byte
-   * @param src
-   *   the input buffer to encode
-   * @param dstFrom
-   *   the output offset in dst to start writing
-   * @param srcFrom
-   *   the input offset in src to start reading
-   * @param srcUntil
-   *   the input exclusively upper bound index in src to stop reading
-   */
+  /** Encodes slice of src into dst using hexadecimal encoding.
+    *
+    * @param dst
+    *   the output buffer to put encoded byte
+    * @param src
+    *   the input buffer to encode
+    * @param dstFrom
+    *   the output offset in dst to start writing
+    * @param srcFrom
+    *   the input offset in src to start reading
+    * @param srcUntil
+    *   the input exclusively upper bound index in src to stop reading. -1 means src.length
+    */
   def encode(
       dst: Array[Byte],
       src: Array[Byte],
@@ -69,6 +106,19 @@ package object hex {
     }
   }
 
+  /** Returns the hexadecimal encoding of slice of src.
+    *
+    * @param src
+    *   the input buffer to encode
+    * @param dstFrom
+    *   the output offset in dst to start writing
+    * @param srcFrom
+    *   the input offset in src to start reading
+    * @param srcUntil
+    *   the input exclusively upper bound index in src to stop reading. -1 means src.length
+    * @return
+    *   a hexadecimal-encoded string
+    */
   def encodeToString(src: Array[Byte], srcFrom: Int = 0, srcUntil: Int = -1): String = {
     val srcView = src.view.slice(srcFrom, srcUntil.max(src.length))
 
@@ -82,6 +132,13 @@ package object hex {
     out.toString()
   }
 
+  /** Returns the length of an encoding of n source bytes. Specifically, it returns n * 2.
+    *
+    * @param n
+    *   length of bytes to encode
+    * @return
+    *   length of output bytes by encoding n btyes
+    */
   def encodedLen(n: Int): Int = n * 2
 
   private def mapToByte(s: Byte): Byte = {
