@@ -180,7 +180,7 @@
         <span class="name">hex</span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.github.sammyne.encoding">encoding</a></dd></dl></div>
+      <p class="shortcomment cmt">Implements hexadecimal encoding and decoding.</p><div class="fullcomment"><div class="comment cmt"><p>Implements hexadecimal encoding and decoding.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.github.sammyne.encoding">encoding</a></dd></dl></div>
     </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="class" href="InvalidByteException.html" title="Describe errors resulting from an invalid byte in a hex string."></a>
@@ -213,7 +213,7 @@
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements hexadecimal encoding and decoding.</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -305,7 +305,7 @@
       </span>
       
       <p class="shortcomment cmt">Reports an attempt to decode an odd-length input using decode or decodeString.</p>
-    </li><li name="com.github.sammyne.encoding.hex#decode" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.github.sammyne.encoding.hex#decode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="decode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit"></a><a id="decode(Array[Byte],Array[Byte],Int,Int,Int):Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/hex/index.html#decode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit" title="Permalink">
@@ -320,8 +320,16 @@
         <span class="name">decode</span><span class="params">(<span name="dst">dst: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="src">src: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="dstFrom">dstFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcFrom">srcFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcUntil">srcUntil: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">-1</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
-    </li><li name="com.github.sammyne.encoding.hex#decodeString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Decodes src into dst.</p><div class="fullcomment"><div class="comment cmt"><p>Decodes src into dst.</p><p>decode expects that src contains only hexadecimal characters and that src has even length.
+</p></div><dl class="paramcmts block"><dt class="param">dst</dt><dd class="cmt"><p>
+  the output buffer to put decoded byte</p></dd><dt class="param">src</dt><dd class="cmt"><p>
+  the input buffer to read byte to decode</p></dd><dt class="param">dstFrom</dt><dd class="cmt"><p>
+  the output offset in dst to start writing</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
+  the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
+  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd></dl><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="#EXCEPTION_LENGTH:Exception" class="extmbr" name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH"><code>EXCEPTION_LENGTH</code></a> 
+  non-even length of input src slice</p></span><span class="cmt"><p><a href="InvalidByteException.html" class="extype" name="com.github.sammyne.encoding.hex.InvalidByteException"><code>InvalidByteException</code></a> 
+  wrapping the first invalid byte</p></span></dd></dl></div>
+    </li><li name="com.github.sammyne.encoding.hex#decodeString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="decodeString(s:String):Array[Byte]"></a><a id="decodeString(String):Array[Byte]"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/hex/index.html#decodeString(s:String):Array[Byte]" title="Permalink">
@@ -336,8 +344,14 @@
         <span class="name">decodeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
       </span>
       
-      
-    </li><li name="com.github.sammyne.encoding.hex#decodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Returns the bytes represented by the hexadecimal string s.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the bytes represented by the hexadecimal string s. decodeString expects that src contains only hexadecimal
+characters and that src has even length.
+</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>
+  even-length hexadecimal string to decode</p></dd><dt>returns</dt><dd class="cmt"><p>
+  bytes decoded from s</p></dd></dl><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="#EXCEPTION_LENGTH:Exception" class="extmbr" name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH"><code>EXCEPTION_LENGTH</code></a> 
+  non-even length of input src slice</p></span><span class="cmt"><p><a href="InvalidByteException.html" class="extype" name="com.github.sammyne.encoding.hex.InvalidByteException"><code>InvalidByteException</code></a> 
+  wrapping the first invalid byte</p></span></dd></dl></div>
+    </li><li name="com.github.sammyne.encoding.hex#decodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="decodedLen(x:Int):Int"></a><a id="decodedLen(Int):Int"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/hex/index.html#decodedLen(x:Int):Int" title="Permalink">
@@ -352,7 +366,10 @@
         <span class="name">decodedLen</span><span class="params">(<span name="x">x: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Returns the length of a decoding of x source bytes.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the length of a decoding of x source bytes. Specifically, it returns x / 2.
+</p></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>
+  length of source bytes</p></dd><dt>returns</dt><dd class="cmt"><p>
+  output length for decoding x bytes</p></dd></dl></div>
     </li><li name="com.github.sammyne.encoding.hex#encode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="encode(dst:Array[Byte],src:Array[Byte],dstFrom:Int,srcFrom:Int,srcUntil:Int):Unit"></a><a id="encode(Array[Byte],Array[Byte],Int,Int,Int):Unit"></a>
       <span class="permalink">
@@ -368,14 +385,14 @@
         <span class="name">encode</span><span class="params">(<span name="dst">dst: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="src">src: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="dstFrom">dstFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcFrom">srcFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcUntil">srcUntil: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">-1</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      <p class="shortcomment cmt">Encodes src into slice of src into dst.</p><div class="fullcomment"><div class="comment cmt"><p>Encodes src into slice of src into dst. encode implements hexadecimal encoding.
+      <p class="shortcomment cmt">Encodes slice of src into dst using hexadecimal encoding.</p><div class="fullcomment"><div class="comment cmt"><p>Encodes slice of src into dst using hexadecimal encoding.
 </p></div><dl class="paramcmts block"><dt class="param">dst</dt><dd class="cmt"><p>
   the output buffer to put encoded byte</p></dd><dt class="param">src</dt><dd class="cmt"><p>
   the input buffer to encode</p></dd><dt class="param">dstFrom</dt><dd class="cmt"><p>
   the output offset in dst to start writing</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
   the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
-  the input exclusively upper bound index in src to stop reading</p></dd></dl></div>
-    </li><li name="com.github.sammyne.encoding.hex#encodeToString" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd></dl></div>
+    </li><li name="com.github.sammyne.encoding.hex#encodeToString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="encodeToString(src:Array[Byte],srcFrom:Int,srcUntil:Int):String"></a><a id="encodeToString(Array[Byte],Int,Int):String"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/hex/index.html#encodeToString(src:Array[Byte],srcFrom:Int,srcUntil:Int):String" title="Permalink">
@@ -390,8 +407,13 @@
         <span class="name">encodeToString</span><span class="params">(<span name="src">src: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="srcFrom">srcFrom: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="srcUntil">srcUntil: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">-1</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       
-      
-    </li><li name="com.github.sammyne.encoding.hex#encodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Returns the hexadecimal encoding of slice of src.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the hexadecimal encoding of slice of src.
+</p></div><dl class="paramcmts block"><dt class="param">src</dt><dd class="cmt"><p>
+  the input buffer to encode</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
+  the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
+  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd><dt>returns</dt><dd class="cmt"><p>
+  a hexadecimal-encoded string</p></dd></dl></div>
+    </li><li name="com.github.sammyne.encoding.hex#encodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="encodedLen(n:Int):Int"></a><a id="encodedLen(Int):Int"></a>
       <span class="permalink">
       <a href="../../../../../com/github/sammyne/encoding/hex/index.html#encodedLen(n:Int):Int" title="Permalink">
@@ -406,7 +428,10 @@
         <span class="name">encodedLen</span><span class="params">(<span name="n">n: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Returns the length of an encoding of n source bytes.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the length of an encoding of n source bytes. Specifically, it returns n * 2.
+</p></div><dl class="paramcmts block"><dt class="param">n</dt><dd class="cmt"><p>
+  length of bytes to encode</p></dd><dt>returns</dt><dd class="cmt"><p>
+  length of output bytes by encoding n btyes</p></dd></dl></div>
     </li>
               </ol>
             </div>
