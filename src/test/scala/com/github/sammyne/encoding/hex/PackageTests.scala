@@ -64,6 +64,19 @@ class PackageTests extends AnyFunSuite {
     }
   }
 
+  test("decodeStringErr") {
+    for ((c, i) <- errTests.zipWithIndex) {
+      var got: Exception = null
+      try {
+        val _ = decodeString(c.in)
+      } catch {
+        case e: Throwable => got = e.asInstanceOf[Exception]
+      }
+
+      assert(c.err == got, s"#$i")
+    }
+  }
+
   test("encode") {
     for ((c, i) <- encDecTests.zipWithIndex) {
       val dst = new Array[Byte](encodedLen(c.dec.length))
