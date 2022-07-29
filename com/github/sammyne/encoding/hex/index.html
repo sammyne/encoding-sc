@@ -326,7 +326,21 @@
   the input buffer to read byte to decode</p></dd><dt class="param">dstFrom</dt><dd class="cmt"><p>
   the output offset in dst to start writing</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
   the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
-  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd></dl><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="#EXCEPTION_LENGTH:Exception" class="extmbr" name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH"><code>EXCEPTION_LENGTH</code></a> 
+  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd></dl><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p></p><pre><span class="kw">import</span> com.github.sammyne.encoding.hex
+
+<span class="kw">object</span> Decode <span class="kw">extends</span> <span class="std">App</span> {
+  <span class="kw">val</span> src = <span class="lit">"48656c6c6f20476f7068657221"</span>.getBytes()
+
+  <span class="kw">val</span> dst = <span class="kw">new</span> <span class="std">Array</span>[<span class="std">Byte</span>](hex.decodedLen(src.length))
+
+  hex.decode(dst, src)
+
+  <span class="kw">val</span> got = <span class="kw">new</span> <span class="std">String</span>(dst)
+  <span class="kw">val</span> expect = <span class="lit">"Hello Gopher!"</span>
+  assert(expect == got)
+}</pre></li></ol>
+            </div><dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="#EXCEPTION_LENGTH:Exception" class="extmbr" name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH"><code>EXCEPTION_LENGTH</code></a> 
   non-even length of input src slice</p></span><span class="cmt"><p><a href="InvalidByteException.html" class="extype" name="com.github.sammyne.encoding.hex.InvalidByteException"><code>InvalidByteException</code></a> 
   wrapping the first invalid byte</p></span></dd></dl></div>
     </li><li name="com.github.sammyne.encoding.hex#decodeString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -344,11 +358,21 @@
         <span class="name">decodeString</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Returns the bytes represented by the hexadecimal string s.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the bytes represented by the hexadecimal string s. decodeString expects that src contains only hexadecimal
-characters and that src has even length.
+      <p class="shortcomment cmt">Returns the bytes represented by the hexadecimal string s.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the bytes represented by the hexadecimal string s.</p><p>decodeString expects that src contains only hexadecimal characters and that src has even length.
 </p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>
   even-length hexadecimal string to decode</p></dd><dt>returns</dt><dd class="cmt"><p>
-  bytes decoded from s</p></dd></dl><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="#EXCEPTION_LENGTH:Exception" class="extmbr" name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH"><code>EXCEPTION_LENGTH</code></a> 
+  bytes decoded from s</p></dd></dl><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p></p><pre><span class="kw">import</span> com.github.sammyne.encoding.hex
+
+<span class="kw">object</span> DecodeString <span class="kw">extends</span> <span class="std">App</span> {
+  <span class="kw">val</span> src = <span class="lit">"48656c6c6f20476f7068657221"</span>
+
+  <span class="kw">val</span> got = hex.decodeString(src)
+
+  <span class="kw">val</span> expect = <span class="lit">"Hello Gopher!"</span>
+  assert(expect == <span class="kw">new</span> <span class="std">String</span>(got))
+}</pre></li></ol>
+            </div><dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="#EXCEPTION_LENGTH:Exception" class="extmbr" name="com.github.sammyne.encoding.hex#EXCEPTION_LENGTH"><code>EXCEPTION_LENGTH</code></a> 
   non-even length of input src slice</p></span><span class="cmt"><p><a href="InvalidByteException.html" class="extype" name="com.github.sammyne.encoding.hex.InvalidByteException"><code>InvalidByteException</code></a> 
   wrapping the first invalid byte</p></span></dd></dl></div>
     </li><li name="com.github.sammyne.encoding.hex#decodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -391,7 +415,20 @@ characters and that src has even length.
   the input buffer to encode</p></dd><dt class="param">dstFrom</dt><dd class="cmt"><p>
   the output offset in dst to start writing</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
   the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
-  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd></dl></div>
+  the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd></dl><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p></p><pre><span class="kw">import</span> com.github.sammyne.encoding.hex
+
+<span class="kw">object</span> Encode <span class="kw">extends</span> <span class="std">App</span> {
+  <span class="kw">val</span> src = <span class="lit">"Hello Gopher!"</span>.getBytes()
+
+  <span class="kw">val</span> dst = <span class="kw">new</span> <span class="std">Array</span>[<span class="std">Byte</span>](hex.encodedLen(src.length))
+  hex.encode(dst, src)
+
+  <span class="kw">val</span> got = <span class="kw">new</span> <span class="std">String</span>(dst)
+  <span class="kw">val</span> expect = <span class="lit">"48656c6c6f20476f7068657221"</span>
+  assert(expect == got)
+}</pre></li></ol>
+            </div></dl></div>
     </li><li name="com.github.sammyne.encoding.hex#encodeToString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="encodeToString(src:Array[Byte],srcFrom:Int,srcUntil:Int):String"></a><a id="encodeToString(Array[Byte],Int,Int):String"></a>
       <span class="permalink">
@@ -412,7 +449,20 @@ characters and that src has even length.
   the input buffer to encode</p></dd><dt class="param">srcFrom</dt><dd class="cmt"><p>
   the input offset in src to start reading</p></dd><dt class="param">srcUntil</dt><dd class="cmt"><p>
   the input exclusively upper bound index in src to stop reading. -1 means src.length</p></dd><dt>returns</dt><dd class="cmt"><p>
-  a hexadecimal-encoded string</p></dd></dl></div>
+  a hexadecimal-encoded string</p></dd></dl><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p></p><pre><span class="kw">package</span> hex.examples
+
+<span class="kw">import</span> com.github.sammyne.encoding.hex
+
+<span class="kw">object</span> EncodeToString <span class="kw">extends</span> <span class="std">App</span> {
+  <span class="kw">val</span> src = <span class="lit">"Hello"</span>.getBytes()
+  <span class="kw">val</span> encodedStr = hex.encodeToString(src)
+  println(encodedStr)
+
+  <span class="cmt">// output:</span>
+  <span class="cmt">// 48656c6c6f</span>
+}</pre></li></ol>
+            </div></dl></div>
     </li><li name="com.github.sammyne.encoding.hex#encodedLen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="encodedLen(n:Int):Int"></a><a id="encodedLen(Int):Int"></a>
       <span class="permalink">
