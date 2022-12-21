@@ -1,4 +1,4 @@
-name: test
+name: build
 
 on:
   pull_request:
@@ -6,17 +6,13 @@ on:
     - main
     paths:
     - 'src/**/*.scala'
-  push:
-    branches-ignore:
-    - main
-    paths:
-    - 'src/**/*.scala'
+    - '.github/**'
   
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     container:
-      image: sammyne/scala:2.12.15-jdk8-ubuntu20.04
+      image: sammyne/scala:2.12.10-konajdk8.0.12-ubuntu20.04
     steps:
     # sammyne/scala bundled without git, so installing it to avoid the RESTful fallback of actions/check.
     # Otherwise, the fetched repository won't be a valid git repository.

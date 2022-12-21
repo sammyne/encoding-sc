@@ -1,22 +1,21 @@
 name: docify
 
 on:
-  push:
-    branches:
-    - main
-    - dev
-    paths:
-    - 'src/**/*.scala'
+  pull_request:
+    branches: [ 'main' ]
+    types:
+    - closed
 
 # ref: https://github.com/JamesIves/github-pages-deploy-action#permission-settings-%EF%B8%8F
-permissions:
-  contents: write
+# permissions:
+#  contents: write
   
 jobs:
   docify:
-    runs-on: ubuntu-18.04
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
     container:
-      image: sammyne/scala:2.12.15-jdk8-ubuntu20.04
+      image: sammyne/scala:2.12.10-konajdk8.0.12-ubuntu20.04
     steps:
     # sammyne/scala bundled without git, so installing it to avoid the RESTful fallback of actions/check.
     # Otherwise, the fetched repository won't be a valid git repository.
